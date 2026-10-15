@@ -4,6 +4,12 @@ Portafolio profesional de **David Hernández Trinidad**: liderazgo TI, infraestr
 
 Incluye una portada adaptable a móvil, experiencia ampliable, laboratorios con fichas propias, formación y certificaciones, documentos, contacto y un resumen imprimible para Recursos Humanos.
 
+## Accesos públicos
+
+- [Abrir portafolio](https://dzoro89.github.io/david-hernandez-ti/)
+- [Resumen profesional para RH](https://dzoro89.github.io/david-hernandez-ti/perfil/)
+- [Laboratorios y bitácora técnica](https://dzoro89.github.io/david-hernandez-ti/#laboratorios)
+
 ## Publicación
 
 1. Abre **Settings → Pages** en este repositorio.
