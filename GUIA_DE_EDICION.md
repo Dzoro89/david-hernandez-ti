@@ -46,3 +46,8 @@ La experiencia aparece en `site/index.html` y `site/profile.html`. Si cambias da
 
 ## Estructura de publicación
 `scripts/build.py` combina las plantillas y los datos, y genera `_site/`. `scripts/check_site.py` comprueba rutas, anclas y variables sin resolver. El flujo `.github/workflows/pages.yml` construye y publica automáticamente. No edites `_site/`: se genera de nuevo en cada publicación.
+
+## Regenerar el perfil PDF
+El resumen público tiene su fuente en `scripts/generate_profile.py`. Para regenerarlo se necesita ReportLab y las fuentes DejaVu Sans. Esto solo afecta a la autoría del PDF: el sitio publicado y su compilación siguen sin dependencias externas.
+
+Después de cambiar el contenido, ejecuta el generador, abre el PDF para revisar la composición y guarda el PDF actualizado junto con el código. La publicación utiliza el archivo ya generado de `site/assets/Perfil_David_Hernandez.pdf`.

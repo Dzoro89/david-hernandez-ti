@@ -45,9 +45,9 @@ El resultado se genera en `_site/`. Puede alojarse en cualquier servicio de arch
 
 ## Criterios del contenido
 
-- La experiencia profesional se presenta separada de las prácticas de laboratorio.
+- La experiencia profesional se presenta separada de las prácticas de laboratorio. Los indicadores de SLA, primeras respuestas y monitoreo corresponden a la operación del servicio; el monitoreo se refiere a la base instalada.
 - VMware está en desarrollo; AD/GPO, Wazuh y hardening están planificados.
 - Ningún laboratorio se muestra como completado sin evidencia publicada.
-- La maestría se presenta como estudios concluidos con titulación en proceso.
+- La maestría (2020-2023) y la ingeniería (2017-2020), ambas de UNITEC, se presentan como estudios concluidos con titulación en proceso.
 - Los cursos Lexmark se distinguen de certificaciones profesionales. No se inventan credenciales, resultados ni métricas.
 - No se publican datos de clientes, información familiar ni detalles de procesos de contratación.
