@@ -125,11 +125,12 @@ def build():
     write('index.html', render((SOURCE / 'index.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'LAB_CARDS': ''.join(cards), 'CERTIFICATIONS': cert_html, 'CREDENTIAL_PREVIEW': preview, 'PUBLICATIONS': ''.join(publication_cards), 'DOCUMENTS': docs_html}))
     write('formacion/index.html', render((SOURCE / 'training.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'CREDENTIAL_COUNT': str(len(credentials)), 'CREDENTIAL_CARDS': ''.join(credential_cards), 'EXTRA_CERTIFICATIONS': ''.join(certifications)}))
     write('perfil/index.html', render((SOURCE / 'profile.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'CREDENTIAL_COUNT': str(len(credentials))}))
+    write('casos/hardening-multifuncionales/index.html', render((SOURCE / 'case-hardening.html').read_text(encoding='utf-8'), {'BASE': text(BASE)}))
     (OUT / 'downloads').mkdir()
     shutil.copyfile(ROOT / 'plantillas/laboratorio.md', OUT / 'downloads/plantilla-laboratorio.md')
     write('.nojekyll', '')
     write('robots.txt', f'User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n')
-    urls = [BASE + '/', BASE + '/perfil/', BASE + '/formacion/'] + [BASE + '/laboratorios/' + lab['slug'] + '/' for lab in labs]
+    urls = [BASE + '/', BASE + '/perfil/', BASE + '/formacion/', BASE + '/casos/hardening-multifuncionales/'] + [BASE + '/laboratorios/' + lab['slug'] + '/' for lab in labs]
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join(f'<url><loc>{text(url)}</loc></url>' for url in urls) + '</urlset>\n')
     write('404.html', f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Página no encontrada | David Hernández</title><link rel="stylesheet" href="{text(BASE)}/styles.css"></head><body><main class="wrap section"><p class="eyebrow">404 / RUTA NO ENCONTRADA</p><h1>Volvamos al<br>portafolio.</h1><p>La dirección que abriste no está disponible.</p><a class="button dark-button" href="{text(BASE)}/">Ir al inicio ↗</a></main></body></html>')
     print(f'Sitio construido: {len(urls)} páginas principales en {OUT}')

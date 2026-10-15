@@ -8,6 +8,7 @@ Incluye una portada adaptable a móvil, experiencia ampliable, laboratorios con 
 
 - [Abrir portafolio](https://dzoro89.github.io/david-hernandez-ti/)
 - [Resumen profesional para RH](https://dzoro89.github.io/david-hernandez-ti/perfil/)
+- [Caso profesional: hardening de multifuncionales](https://dzoro89.github.io/david-hernandez-ti/casos/hardening-multifuncionales/)
 - [Laboratorios y bitácora técnica](https://dzoro89.github.io/david-hernandez-ti/#laboratorios)
 - [Catálogo de formación y constancias](https://dzoro89.github.io/david-hernandez-ti/formacion/)
 - [Publicaciones y trabajo académico](https://dzoro89.github.io/david-hernandez-ti/#publicaciones)
@@ -27,6 +28,7 @@ Cada cambio en `main` vuelve a construir y publicar el sitio. La dirección can�
 | --- | --- |
 | Presentación y experiencia | `site/index.html` |
 | Perfil para RH | `site/profile.html` |
+| Caso de hardening de multifuncionales | `site/case-hardening.html` |
 | Laboratorios, certificados y documentos | `content/portfolio.json` |
 | Diseño | `site/styles.css` |
 | Navegación, filtros y copiar correo | `site/app.js` |
@@ -48,6 +50,7 @@ El resultado se genera en `_site/`. Puede alojarse en cualquier servicio de arch
 ## Criterios del contenido
 
 - La experiencia profesional se presenta separada de las prácticas de laboratorio. Los indicadores de SLA, primeras respuestas y monitoreo corresponden a la operación del servicio; el monitoreo se refiere a la base instalada.
+- El caso de hardening de multifuncionales describe trabajo profesional comunicado por David. Las referencias del fabricante aportan contexto; no se inventan puertos concretos, comandos ejecutados ni resultados comparativos.
 - VMware está en desarrollo; AD/GPO, Wazuh y hardening están planificados.
 - Ningún laboratorio se muestra como completado sin evidencia publicada.
 - La maestría (2020-2023) y la ingeniería (2017-2020), ambas de UNITEC, se presentan como estudios concluidos con titulación en proceso.

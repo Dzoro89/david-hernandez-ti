@@ -44,6 +44,11 @@ Consulta `documentos/README.md`. No publiques identificaciones, documentos famil
 ## Actualizar el perfil
 La experiencia aparece en `site/index.html` y `site/profile.html`. Si cambias datos de trayectoria, revisa ambos y sustituye el PDF cuando corresponda.
 
+## Completar un caso profesional
+La ficha de hardening de multifuncionales está en `site/case-hardening.html` y se publica en `/casos/hardening-multifuncionales/`. Sus accesos aparecen en la portada y en el perfil para RH.
+
+Para ampliar el caso, añade el contexto, tu participación, un hallazgo concreto, el cambio aplicado y cómo se validó. Mantén los resultados y métricas vinculados a información que puedas respaldar. La ficha reserva un apartado para futuras evidencias públicas; retira nombres de clientes, direcciones, credenciales y datos internos antes de preparar una versión para publicar. Las referencias técnicas no acreditan por sí mismas la ejecución de todas las recomendaciones de una guía.
+
 ## Estructura de publicación
 `scripts/build.py` combina las plantillas y los datos, y genera `_site/`. `scripts/check_site.py` comprueba rutas, anclas y variables sin resolver. El flujo `.github/workflows/pages.yml` construye y publica automáticamente. No edites `_site/`: se genera de nuevo en cada publicación.
 
