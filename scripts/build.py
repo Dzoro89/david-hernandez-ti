@@ -93,7 +93,7 @@ def build():
     credential_ids = set()
     credential_cards = []
     for item in credentials:
-        if item['id'] in credential_ids or item['category'] not in ('seguridad', 'redes', 'mps', 'sistemas', 'datos'):
+        if item['id'] in credential_ids or item['category'] not in ('seguridad', 'redes', 'mps', 'sistemas', 'datos', 'gestion'):
             raise ValueError('Credencial duplicada o categoría desconocida.')
         credential_ids.add(item['id'])
         if item.get('public_file'):
@@ -105,7 +105,7 @@ def build():
         credential_cards.append(f'<article class="credential-card" data-category="{text(item["category"])}"><div class="credential-card-top"><span>{text(item["kind"])}</span><time>{text(item["year"])}</time></div><h2>{text(item["title"])}</h2><p class="credential-issuer">{text(item["issuer"])}</p><p>{text(item["description"])}</p><div class="credential-date">Fecha en la constancia: {text(item["issued"])}</div><div class="credential-actions">{action}</div></article>')
     featured = [item for item in credentials if item.get('featured')][:4]
     preview_links = ''.join(f'<a class="training-preview-link" href="formacion/"><span>{text(item["issuer"].split(" / ")[0])} · {text(item["year"])}</span><strong>{text(item["title"])} ↗</strong></a>' for item in featured)
-    preview = f'<article class="documented-training"><span class="mini-label">FORMACIÓN TÉCNICA DOCUMENTADA</span><h3>{len(credentials)} actividades con constancia</h3><p>Seguridad, redes, plataformas MPS, sistemas y análisis de datos.</p><div class="training-preview-list">{preview_links}</div><a class="button dark-button" href="formacion/">Explorar todas las constancias ↗</a></article>'
+    preview = f'<article class="documented-training"><span class="mini-label">FORMACIÓN TÉCNICA DOCUMENTADA</span><h3>{len(credentials)} actividades con constancia</h3><p>Seguridad, redes, plataformas MPS, sistemas, nube, datos y gestión.</p><div class="training-preview-list">{preview_links}</div><a class="button dark-button" href="formacion/">Explorar todas las constancias ↗</a></article>'
     publication_cards = []
     for item in data.get('publications', []):
         links = ''.join(f'<a href="{evidence_url(link["url"], prefix="")}" target="_blank" rel="noopener noreferrer">{text(link["label"])} ↗</a>' for link in item['links'])

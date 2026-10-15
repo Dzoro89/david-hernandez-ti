@@ -56,7 +56,7 @@ Después de cambiar el contenido, ejecuta el generador, abre el PDF para revisar
 El catálogo `/formacion/` se genera desde `credentials` en `content/portfolio.json`. Cada entrada incluye `id`, `title`, `issuer`, `issued`, `year`, `category`, `kind`, `description`, `document_available` y, opcionalmente, `featured` y `public_file`.
 
 - El catálogo ofrece las constancias a solicitud. Si decides habilitar un documento para descarga pública, guárdalo en `site/assets/formacion/` y registra su ruta en `public_file`.
-- Usa una categoría existente: `seguridad`, `redes`, `mps`, `sistemas` o `datos`.
+- Usa una categoría existente: `seguridad`, `redes`, `mps`, `sistemas`, `datos` o `gestion`.
 - Conserva el nombre y la fecha que figuran en el documento.
 - `kind` distingue curso, seminario, certificado de formación o certificación técnica de fabricante. No conviertas un curso de preparación en una certificación profesional.
 - Las cartas de respaldo del mismo curso se consideran documentación complementaria; no cuentan como una actividad adicional.

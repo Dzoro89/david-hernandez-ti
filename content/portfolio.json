@@ -340,6 +340,32 @@
       "supporting_documents": 1
     },
     {
+      "id": "cisco-it-essentials",
+      "title": "IT Essentials",
+      "issuer": "Cisco Networking Academy / UNITEC",
+      "issued": "12/04/2018",
+      "year": "2018",
+      "category": "sistemas",
+      "kind": "Curso Networking Academy",
+      "description": "Formación en hardware, mantenimiento, sistemas operativos, conectividad, soporte y seguridad básica.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "findes-redaccion-ortografia",
+      "title": "Redacción y Ortografía Eficaz",
+      "issuer": "FINDES · Fundación de Investigación para el Desarrollo Profesional",
+      "issued": "9 de junio al 7 de julio de 2018",
+      "year": "2018",
+      "category": "gestion",
+      "kind": "Curso con constancia",
+      "description": "Curso de 20 horas de formación en redacción y ortografía.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
       "id": "equitrac-implementacion",
       "title": "Equitrac Office and Express 5.7 Technical Certification for Implementation",
       "issuer": "Nuance University / Nuance Communications",
@@ -387,6 +413,19 @@
       "category": "mps",
       "kind": "Curso técnico",
       "description": "Constancia de finalización emitida por Nuance University para formación técnica en Equitrac 5.7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "colcami-servicio-cliente",
+      "title": "Servicio al Cliente: Calidad y Crecimiento en los Negocios",
+      "issuer": "Universidad Anáhuac México / COLCAMI",
+      "issued": "23 y 24 de febrero de 2018",
+      "year": "2018",
+      "category": "gestion",
+      "kind": "Curso con reconocimiento",
+      "description": "Curso de 8 horas de formación en servicio al cliente, calidad y crecimiento en los negocios.",
       "featured": false,
       "document_available": true,
       "supporting_documents": 1
@@ -465,6 +504,19 @@
       "category": "sistemas",
       "kind": "Seminario",
       "description": "Constancia de participación en seminario virtual de Java versión 8.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "cloud-computing-aws",
+      "title": "Soluciones de Cloud Computing con AWS",
+      "issuer": "Global Knowledge / Centro Netec",
+      "issued": "16/03/2016",
+      "year": "2016",
+      "category": "sistemas",
+      "kind": "Seminario",
+      "description": "Constancia de participación en seminario virtual sobre soluciones de Cloud Computing con AWS.",
       "featured": false,
       "document_available": true,
       "supporting_documents": 1
