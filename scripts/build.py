@@ -7,6 +7,7 @@ import shutil
 from html import escape
 from pathlib import Path
 from urllib.parse import urlsplit
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '_site'
@@ -88,6 +89,31 @@ def build():
             evidence = '<div class="evidence-empty"><strong>Aún no hay evidencias de ejecución publicadas.</strong><p>Las capturas, bitácoras y resultados se incorporarán aquí conforme avance la práctica. El plan y la arquitectura son una propuesta de trabajo.</p></div>'
         values = {'BASE': text(BASE), 'TITLE': text(lab['title']), 'DESCRIPTION': text(lab['summary']), 'SLUG': slug, 'ID': text(lab['id']), 'AREA': text(lab['area']).upper(), 'SUMMARY': text(lab['summary']), 'TOOLS': tags(lab), 'BADGE': badge(lab), 'PROGRESS': text(lab['progress']), 'UPDATED': text(data['updated']), 'GITHUB': text(f'{GITHUB}/tree/main/laboratorios/{slug}'), 'CONTEXT': text(lab['context']), 'OBJECTIVE': text(lab['objective']), 'ARCHITECTURE': architecture, 'PLAN': plan, 'EVIDENCE': evidence, 'DELIVERABLES': ''.join(f'<li>{text(item)}</li>' for item in lab['deliverables'])}
         write(f'laboratorios/{slug}/index.html', render(template, values))
+    credentials = data.get('credentials', [])
+    credential_ids = set()
+    credential_cards = []
+    for item in credentials:
+        if item['id'] in credential_ids or item['category'] not in ('seguridad', 'redes', 'mps', 'sistemas', 'datos'):
+            raise ValueError('Credencial duplicada o categoría desconocida.')
+        credential_ids.add(item['id'])
+        if item.get('public_file'):
+            file_url = evidence_url(item['public_file'], prefix='../')
+            action = f'<a href="{file_url}" target="_blank" rel="noopener noreferrer">Consultar constancia ↗<span class="sr-only">: {text(item["title"])}</span></a>'
+        else:
+            request_url = 'mailto:dave989172@gmail.com?subject=' + quote('Solicitud de constancia: ' + item['title'])
+            action = f'<a href="{text(request_url)}">Solicitar constancia ↗<span class="sr-only">: {text(item["title"])}</span></a>'
+        credential_cards.append(f'<article class="credential-card" data-category="{text(item["category"])}"><div class="credential-card-top"><span>{text(item["kind"])}</span><time>{text(item["year"])}</time></div><h2>{text(item["title"])}</h2><p class="credential-issuer">{text(item["issuer"])}</p><p>{text(item["description"])}</p><div class="credential-date">Fecha en la constancia: {text(item["issued"])}</div><div class="credential-actions">{action}</div></article>')
+    featured = [item for item in credentials if item.get('featured')][:4]
+    preview_links = ''.join(f'<a class="training-preview-link" href="formacion/"><span>{text(item["issuer"].split(" / ")[0])} · {text(item["year"])}</span><strong>{text(item["title"])} ↗</strong></a>' for item in featured)
+    preview = f'<article class="documented-training"><span class="mini-label">FORMACIÓN TÉCNICA DOCUMENTADA</span><h3>{len(credentials)} actividades con constancia</h3><p>Seguridad, redes, plataformas MPS, sistemas y análisis de datos.</p><div class="training-preview-list">{preview_links}</div><a class="button dark-button" href="formacion/">Explorar todas las constancias ↗</a></article>'
+    publication_cards = []
+    for item in data.get('publications', []):
+        links = ''.join(f'<a href="{evidence_url(link["url"], prefix="")}" target="_blank" rel="noopener noreferrer">{text(link["label"])} ↗</a>' for link in item['links'])
+        if item.get('document_available'):
+            request_url = 'mailto:dave989172@gmail.com?subject=' + quote('Solicitud de reporte: ' + item['title'])
+            links += f'<a href="{text(request_url)}">Solicitar reporte completo ↗</a>'
+        authors = ' · '.join(text(author) for author in item['authors'])
+        publication_cards.append(f'<article class="publication-card" id="{text(item["id"])}"><div class="publication-top"><span>{text(item["kind"])}</span><span>{text(item["year"])}</span></div><h3>{text(item["title"])}</h3><p class="publication-venue">{text(item["venue"])}</p><p>{text(item["summary"])}</p><details class="publication-authors"><summary>Consultar autoría y referencia <span aria-hidden="true">+</span></summary><p>{authors}</p><p>{text(item["reference"])}</p></details><div class="publication-links">{links}</div></article>')
     certifications = []
     for item in data['certifications']:
         certifications.append(f'<a class="credential-link" href="{public_url(item["verification_url"])}" target="_blank" rel="noopener noreferrer"><strong>{text(item["title"])} ↗</strong><span>{text(item["issuer"])} · {text(item["issued"])}</span></a>')
@@ -96,13 +122,14 @@ def build():
     for item in data['documents']:
         documents.append(f'<a href="{evidence_url(item["url"], prefix="")}" target="_blank" rel="noopener noreferrer">{text(item["title"])} ↗</a>')
     docs_html = '<div class="published-documents">' + ''.join(documents) + '</div>' if documents else ''
-    write('index.html', render((SOURCE / 'index.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'LAB_CARDS': ''.join(cards), 'CERTIFICATIONS': cert_html, 'DOCUMENTS': docs_html}))
-    write('perfil/index.html', render((SOURCE / 'profile.html').read_text(encoding='utf-8'), {'BASE': text(BASE)}))
+    write('index.html', render((SOURCE / 'index.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'LAB_CARDS': ''.join(cards), 'CERTIFICATIONS': cert_html, 'CREDENTIAL_PREVIEW': preview, 'PUBLICATIONS': ''.join(publication_cards), 'DOCUMENTS': docs_html}))
+    write('formacion/index.html', render((SOURCE / 'training.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'CREDENTIAL_COUNT': str(len(credentials)), 'CREDENTIAL_CARDS': ''.join(credential_cards), 'EXTRA_CERTIFICATIONS': ''.join(certifications)}))
+    write('perfil/index.html', render((SOURCE / 'profile.html').read_text(encoding='utf-8'), {'BASE': text(BASE), 'CREDENTIAL_COUNT': str(len(credentials))}))
     (OUT / 'downloads').mkdir()
     shutil.copyfile(ROOT / 'plantillas/laboratorio.md', OUT / 'downloads/plantilla-laboratorio.md')
     write('.nojekyll', '')
     write('robots.txt', f'User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n')
-    urls = [BASE + '/', BASE + '/perfil/'] + [BASE + '/laboratorios/' + lab['slug'] + '/' for lab in labs]
+    urls = [BASE + '/', BASE + '/perfil/', BASE + '/formacion/'] + [BASE + '/laboratorios/' + lab['slug'] + '/' for lab in labs]
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join(f'<url><loc>{text(url)}</loc></url>' for url in urls) + '</urlset>\n')
     write('404.html', f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Página no encontrada | David Hernández</title><link rel="stylesheet" href="{text(BASE)}/styles.css"></head><body><main class="wrap section"><p class="eyebrow">404 / RUTA NO ENCONTRADA</p><h1>Volvamos al<br>portafolio.</h1><p>La dirección que abriste no está disponible.</p><a class="button dark-button" href="{text(BASE)}/">Ir al inicio ↗</a></main></body></html>')
     print(f'Sitio construido: {len(urls)} páginas principales en {OUT}')

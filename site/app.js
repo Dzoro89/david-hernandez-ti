@@ -23,14 +23,15 @@ if (menuButton && navigation) {
   window.matchMedia('(min-width: 681px)').addEventListener('change', closeMenu);
 }
 
-const controls = document.querySelector('.lab-controls');
-if (controls) {
+function setupFilters(controlsSelector, searchSelector, cardsSelector, resultSelector, emptySelector, singular, plural) {
+  const controls = document.querySelector(controlsSelector);
+  if (!controls) return;
   controls.hidden = false;
   const filters = [...controls.querySelectorAll('[data-filter]')];
-  const search = document.querySelector('#lab-search');
-  const cards = [...document.querySelectorAll('.lab-card')];
-  const count = document.querySelector('#filter-result');
-  const empty = document.querySelector('.empty-results');
+  const search = document.querySelector(searchSelector);
+  const cards = [...document.querySelectorAll(cardsSelector)];
+  const count = document.querySelector(resultSelector);
+  const empty = document.querySelector(emptySelector);
   let activeFilter = 'todos';
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   const applyFilters = () => {
@@ -42,7 +43,7 @@ if (controls) {
       card.hidden = !matches;
       if (matches) visible += 1;
     }
-    count.textContent = `${visible} ${visible === 1 ? 'laboratorio disponible' : 'laboratorios disponibles'}`;
+    count.textContent = `${visible} ${visible === 1 ? singular : plural}`;
     empty.hidden = visible > 0;
   };
   for (const filter of filters) {
@@ -59,6 +60,8 @@ if (controls) {
   search.addEventListener('input', applyFilters);
   applyFilters();
 }
+setupFilters('.lab-controls', '#lab-search', '.lab-card', '#filter-result', '.empty-results', 'laboratorio disponible', 'laboratorios disponibles');
+setupFilters('.credential-controls', '#credential-search', '.credential-card', '#credential-result', '.credential-empty', 'actividad documentada', 'actividades documentadas');
 
 const copyButton = document.querySelector('.copy-email');
 if (copyButton && navigator.clipboard) {

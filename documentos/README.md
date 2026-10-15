@@ -14,3 +14,6 @@ Para añadir reportes o constancias al sitio:
 Publica solo reportes que ya existan. Los documentos aparecen automáticamente en la sección Documentos después de una compilación y despliegue correctos.
 
 Las constancias académicas completas y referencias pueden compartirse de forma privada durante un proceso de selección. El sitio público no necesita expedientes personales.
+
+
+Las actividades formativas se registran en `credentials`, dentro de `content/portfolio.json`. Las constancias originales se ofrecen a solicitud. Las publicaciones académicas se registran en `publications`; su documentación está en `publicaciones/README.md`.

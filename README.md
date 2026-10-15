@@ -9,6 +9,8 @@ Incluye una portada adaptable a móvil, experiencia ampliable, laboratorios con 
 - [Abrir portafolio](https://dzoro89.github.io/david-hernandez-ti/)
 - [Resumen profesional para RH](https://dzoro89.github.io/david-hernandez-ti/perfil/)
 - [Laboratorios y bitácora técnica](https://dzoro89.github.io/david-hernandez-ti/#laboratorios)
+- [Catálogo de formación y constancias](https://dzoro89.github.io/david-hernandez-ti/formacion/)
+- [Publicaciones y trabajo académico](https://dzoro89.github.io/david-hernandez-ti/#publicaciones)
 
 ## Publicación
 
@@ -49,5 +51,5 @@ El resultado se genera en `_site/`. Puede alojarse en cualquier servicio de arch
 - VMware está en desarrollo; AD/GPO, Wazuh y hardening están planificados.
 - Ningún laboratorio se muestra como completado sin evidencia publicada.
 - La maestría (2020-2023) y la ingeniería (2017-2020), ambas de UNITEC, se presentan como estudios concluidos con titulación en proceso.
-- Los cursos Lexmark se distinguen de certificaciones profesionales. No se inventan credenciales, resultados ni métricas.
+- El catálogo conserva el tipo y la fecha de cada constancia. Los cursos de Cisco Networking Academy se distinguen de una certificación profesional CCNA. Las cartas de respaldo no duplican cursos. No se inventan credenciales, vigencia, resultados ni métricas.
 - No se publican datos de clientes, información familiar ni detalles de procesos de contratación.

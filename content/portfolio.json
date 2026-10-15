@@ -2,50 +2,517 @@
   "updated": "2026-10-15",
   "labs": [
     {
-      "id": "INF-01", "slug": "vmware-alta-disponibilidad", "title": "VMware y alta disponibilidad", "area": "Infraestructura", "filter": "infraestructura", "status": "en-desarrollo",
+      "id": "INF-01",
+      "slug": "vmware-alta-disponibilidad",
+      "title": "VMware y alta disponibilidad",
+      "area": "Infraestructura",
+      "filter": "infraestructura",
+      "status": "en-desarrollo",
       "summary": "Diseño de un entorno de virtualización para estudiar almacenamiento compartido y continuidad de máquinas virtuales.",
-      "tools": ["VMware", "HA", "Storage"],
+      "tools": [
+        "VMware",
+        "HA",
+        "Storage"
+      ],
       "context": "Laboratorio personal iniciado como preparación técnica en virtualización. Se resolvió una incidencia de idioma durante la instalación. Las pruebas de alta disponibilidad todavía no están documentadas.",
       "objective": "Construir una práctica reproducible que permita explicar la arquitectura, comprobar el acceso al almacenamiento y documentar el comportamiento ante una interrupción controlada.",
-      "architecture": [{"name":"Administración","detail":"Consola de gestión del entorno"},{"name":"Cómputo","detail":"Hosts de laboratorio según recursos disponibles"},{"name":"Almacenamiento","detail":"Datastore compartido de prueba"},{"name":"Carga de prueba","detail":"Máquina virtual sin datos reales"}],
-      "plan": [{"title":"Definir el alcance","detail":"Inventariar los recursos del equipo y acordar qué componentes pueden ejecutarse en el laboratorio.","validation":"Diagrama y tabla de recursos del entorno."},{"title":"Preparar la infraestructura","detail":"Configurar el entorno virtual y documentar la conectividad entre los componentes de práctica.","validation":"Capturas de configuración y pruebas de conectividad."},{"title":"Validar el almacenamiento","detail":"Comprobar la visibilidad del almacenamiento compartido desde los hosts del laboratorio.","validation":"Registro del datastore y de los accesos comprobados."},{"title":"Evaluar la disponibilidad","detail":"Diseñar y ejecutar una interrupción controlada únicamente cuando el entorno esté listo.","validation":"Secuencia de eventos, resultado observado y limitaciones."}],
+      "architecture": [
+        {
+          "name": "Administración",
+          "detail": "Consola de gestión del entorno"
+        },
+        {
+          "name": "Cómputo",
+          "detail": "Hosts de laboratorio según recursos disponibles"
+        },
+        {
+          "name": "Almacenamiento",
+          "detail": "Datastore compartido de prueba"
+        },
+        {
+          "name": "Carga de prueba",
+          "detail": "Máquina virtual sin datos reales"
+        }
+      ],
+      "plan": [
+        {
+          "title": "Definir el alcance",
+          "detail": "Inventariar los recursos del equipo y acordar qué componentes pueden ejecutarse en el laboratorio.",
+          "validation": "Diagrama y tabla de recursos del entorno."
+        },
+        {
+          "title": "Preparar la infraestructura",
+          "detail": "Configurar el entorno virtual y documentar la conectividad entre los componentes de práctica.",
+          "validation": "Capturas de configuración y pruebas de conectividad."
+        },
+        {
+          "title": "Validar el almacenamiento",
+          "detail": "Comprobar la visibilidad del almacenamiento compartido desde los hosts del laboratorio.",
+          "validation": "Registro del datastore y de los accesos comprobados."
+        },
+        {
+          "title": "Evaluar la disponibilidad",
+          "detail": "Diseñar y ejecutar una interrupción controlada únicamente cuando el entorno esté listo.",
+          "validation": "Secuencia de eventos, resultado observado y limitaciones."
+        }
+      ],
       "progress": "Instalación inicial retomada tras resolver la incidencia de idioma. Arquitectura definitiva, pruebas y evidencias pendientes.",
-      "deliverables": ["Diagrama de arquitectura", "Inventario de recursos", "Bitácora de configuración", "Registro de prueba y conclusión"], "evidence": []
+      "deliverables": [
+        "Diagrama de arquitectura",
+        "Inventario de recursos",
+        "Bitácora de configuración",
+        "Registro de prueba y conclusión"
+      ],
+      "evidence": []
     },
     {
-      "id": "ID-02", "slug": "active-directory-gpo", "title": "Active Directory y políticas de grupo", "area": "Identidad", "filter": "infraestructura", "status": "planificado",
+      "id": "ID-02",
+      "slug": "active-directory-gpo",
+      "title": "Active Directory y políticas de grupo",
+      "area": "Identidad",
+      "filter": "infraestructura",
+      "status": "planificado",
       "summary": "Administración de identidades, organización de usuarios y validación de políticas en un dominio de práctica.",
-      "tools": ["Windows Server", "AD DS", "GPO"],
+      "tools": [
+        "Windows Server",
+        "AD DS",
+        "GPO"
+      ],
       "context": "Práctica propuesta para documentar conocimientos de administración de identidades. Todavía no se han publicado resultados de ejecución.",
       "objective": "Demostrar con evidencia cómo se organizan identidades y equipos y cómo se comprueba el alcance de una política sobre un cliente de prueba.",
-      "architecture": [{"name":"Dominio de práctica","detail":"Controlador de dominio y DNS del laboratorio"},{"name":"Organización","detail":"Usuarios, grupos y unidades organizativas"},{"name":"Cliente","detail":"Equipo de prueba unido al dominio"},{"name":"Política","detail":"GPO acotada a la unidad de prueba"}],
-      "plan": [{"title":"Preparar el entorno","detail":"Definir direccionamiento, dominio de práctica y recursos de las máquinas virtuales.","validation":"Diagrama y prerrequisitos registrados."},{"title":"Organizar identidades","detail":"Crear usuarios, grupos y unidades organizativas con una nomenclatura documentada.","validation":"Matriz de usuarios, grupos y permisos de prueba."},{"title":"Aplicar una política","detail":"Elegir una política acotada, registrar su configuración y vincularla a la unidad prevista.","validation":"Configuración y alcance de la GPO documentados."},{"title":"Comprobar el resultado","detail":"Revisar desde el cliente la política aplicada y comparar el resultado con lo esperado.","validation":"Evidencia antes/después y conclusión de la prueba."}],
+      "architecture": [
+        {
+          "name": "Dominio de práctica",
+          "detail": "Controlador de dominio y DNS del laboratorio"
+        },
+        {
+          "name": "Organización",
+          "detail": "Usuarios, grupos y unidades organizativas"
+        },
+        {
+          "name": "Cliente",
+          "detail": "Equipo de prueba unido al dominio"
+        },
+        {
+          "name": "Política",
+          "detail": "GPO acotada a la unidad de prueba"
+        }
+      ],
+      "plan": [
+        {
+          "title": "Preparar el entorno",
+          "detail": "Definir direccionamiento, dominio de práctica y recursos de las máquinas virtuales.",
+          "validation": "Diagrama y prerrequisitos registrados."
+        },
+        {
+          "title": "Organizar identidades",
+          "detail": "Crear usuarios, grupos y unidades organizativas con una nomenclatura documentada.",
+          "validation": "Matriz de usuarios, grupos y permisos de prueba."
+        },
+        {
+          "title": "Aplicar una política",
+          "detail": "Elegir una política acotada, registrar su configuración y vincularla a la unidad prevista.",
+          "validation": "Configuración y alcance de la GPO documentados."
+        },
+        {
+          "title": "Comprobar el resultado",
+          "detail": "Revisar desde el cliente la política aplicada y comparar el resultado con lo esperado.",
+          "validation": "Evidencia antes/después y conclusión de la prueba."
+        }
+      ],
       "progress": "Alcance y estructura documental preparados. Ejecución pendiente.",
-      "deliverables": ["Diagrama de dominio", "Matriz de identidades", "Ficha de la GPO", "Validación en el cliente"], "evidence": []
+      "deliverables": [
+        "Diagrama de dominio",
+        "Matriz de identidades",
+        "Ficha de la GPO",
+        "Validación en el cliente"
+      ],
+      "evidence": []
     },
     {
-      "id": "SOC-03", "slug": "wazuh-analisis-eventos", "title": "Wazuh: del evento al análisis", "area": "Blue Team", "filter": "seguridad", "status": "planificado",
+      "id": "SOC-03",
+      "slug": "wazuh-analisis-eventos",
+      "title": "Wazuh: del evento al análisis",
+      "area": "Blue Team",
+      "filter": "seguridad",
+      "status": "planificado",
       "summary": "Recepción de eventos de un endpoint y documentación de una investigación en un entorno controlado.",
-      "tools": ["Wazuh", "SIEM", "Análisis"],
+      "tools": [
+        "Wazuh",
+        "SIEM",
+        "Análisis"
+      ],
       "context": "Práctica propuesta para desarrollar una bitácora de análisis de eventos. No representa una detección ejecutada ni un incidente de un cliente.",
       "objective": "Documentar el recorrido de un evento de prueba: origen, recepción, contexto, análisis y conclusión sustentada en la evidencia disponible.",
-      "architecture": [{"name":"Endpoint","detail":"Equipo de laboratorio con agente"},{"name":"Recepción","detail":"Componentes centrales de Wazuh"},{"name":"Análisis","detail":"Revisión del evento y su contexto"},{"name":"Bitácora","detail":"Evidencia, conclusión y seguimiento"}],
-      "plan": [{"title":"Definir el caso de prueba","detail":"Elegir un evento benigno y un endpoint propio para una práctica con alcance claro.","validation":"Objetivo y resultado esperado registrados."},{"title":"Preparar la visibilidad","detail":"Configurar los componentes de laboratorio y comprobar la conexión del agente.","validation":"Estado del agente y recepción de eventos."},{"title":"Observar e investigar","detail":"Generar el evento de prueba y revisar sus campos, hora, origen y contexto.","validation":"Registro anonimizado del evento y notas de análisis."},{"title":"Comunicar la conclusión","detail":"Separar hechos observados de hipótesis y describir las acciones de seguimiento.","validation":"Reporte de análisis y limitaciones de la práctica."}],
+      "architecture": [
+        {
+          "name": "Endpoint",
+          "detail": "Equipo de laboratorio con agente"
+        },
+        {
+          "name": "Recepción",
+          "detail": "Componentes centrales de Wazuh"
+        },
+        {
+          "name": "Análisis",
+          "detail": "Revisión del evento y su contexto"
+        },
+        {
+          "name": "Bitácora",
+          "detail": "Evidencia, conclusión y seguimiento"
+        }
+      ],
+      "plan": [
+        {
+          "title": "Definir el caso de prueba",
+          "detail": "Elegir un evento benigno y un endpoint propio para una práctica con alcance claro.",
+          "validation": "Objetivo y resultado esperado registrados."
+        },
+        {
+          "title": "Preparar la visibilidad",
+          "detail": "Configurar los componentes de laboratorio y comprobar la conexión del agente.",
+          "validation": "Estado del agente y recepción de eventos."
+        },
+        {
+          "title": "Observar e investigar",
+          "detail": "Generar el evento de prueba y revisar sus campos, hora, origen y contexto.",
+          "validation": "Registro anonimizado del evento y notas de análisis."
+        },
+        {
+          "title": "Comunicar la conclusión",
+          "detail": "Separar hechos observados de hipótesis y describir las acciones de seguimiento.",
+          "validation": "Reporte de análisis y limitaciones de la práctica."
+        }
+      ],
       "progress": "Caso de práctica y entregables definidos. Instalación y ejecución pendientes.",
-      "deliverables": ["Arquitectura del laboratorio", "Evento anonimizado", "Bitácora de investigación", "Conclusión técnica"], "evidence": []
+      "deliverables": [
+        "Arquitectura del laboratorio",
+        "Evento anonimizado",
+        "Bitácora de investigación",
+        "Conclusión técnica"
+      ],
+      "evidence": []
     },
     {
-      "id": "SEC-04", "slug": "vulnerabilidades-hardening", "title": "Vulnerabilidades y hardening", "area": "Seguridad", "filter": "seguridad", "status": "planificado",
+      "id": "SEC-04",
+      "slug": "vulnerabilidades-hardening",
+      "title": "Vulnerabilidades y hardening",
+      "area": "Seguridad",
+      "filter": "seguridad",
+      "status": "planificado",
       "summary": "Un ciclo de evaluación, priorización y validación de mejoras sobre sistemas propios de laboratorio.",
-      "tools": ["Windows / Linux", "Nmap", "Remediación"],
+      "tools": [
+        "Windows / Linux",
+        "Nmap",
+        "Remediación"
+      ],
       "context": "Nueva práctica propuesta para este portafolio. Su finalidad es mostrar cómo se registra un hallazgo y se verifica una mejora, sin usar datos ni sistemas de terceros.",
       "objective": "Conectar un hallazgo técnico con su impacto, una acción de mejora y una validación posterior; documentar también los riesgos que permanezcan abiertos.",
-      "architecture": [{"name":"Activo de prueba","detail":"Sistema propio y aislado"},{"name":"Evaluación","detail":"Inventario y revisión de configuración"},{"name":"Mejora","detail":"Cambio documentado con reversión"},{"name":"Validación","detail":"Comparación antes/después"}],
-      "plan": [{"title":"Delimitar el alcance","detail":"Registrar los activos propios y las comprobaciones autorizadas dentro del laboratorio.","validation":"Inventario y alcance definidos."},{"title":"Registrar hallazgos","detail":"Revisar servicios y configuración y documentar cada observación con su evidencia.","validation":"Tabla de hallazgos, contexto y prioridad justificada."},{"title":"Proponer y aplicar mejoras","detail":"Elegir un cambio acotado, describir su impacto y preparar una reversión antes de aplicarlo.","validation":"Registro de cambio y comprobación del servicio."},{"title":"Revisar el resultado","detail":"Repetir la comprobación y comparar los resultados con la situación inicial.","validation":"Evidencia antes/después y riesgos residuales."}],
+      "architecture": [
+        {
+          "name": "Activo de prueba",
+          "detail": "Sistema propio y aislado"
+        },
+        {
+          "name": "Evaluación",
+          "detail": "Inventario y revisión de configuración"
+        },
+        {
+          "name": "Mejora",
+          "detail": "Cambio documentado con reversión"
+        },
+        {
+          "name": "Validación",
+          "detail": "Comparación antes/después"
+        }
+      ],
+      "plan": [
+        {
+          "title": "Delimitar el alcance",
+          "detail": "Registrar los activos propios y las comprobaciones autorizadas dentro del laboratorio.",
+          "validation": "Inventario y alcance definidos."
+        },
+        {
+          "title": "Registrar hallazgos",
+          "detail": "Revisar servicios y configuración y documentar cada observación con su evidencia.",
+          "validation": "Tabla de hallazgos, contexto y prioridad justificada."
+        },
+        {
+          "title": "Proponer y aplicar mejoras",
+          "detail": "Elegir un cambio acotado, describir su impacto y preparar una reversión antes de aplicarlo.",
+          "validation": "Registro de cambio y comprobación del servicio."
+        },
+        {
+          "title": "Revisar el resultado",
+          "detail": "Repetir la comprobación y comparar los resultados con la situación inicial.",
+          "validation": "Evidencia antes/después y riesgos residuales."
+        }
+      ],
       "progress": "Propuesta creada. Evaluación, cambios y evidencias pendientes.",
-      "deliverables": ["Inventario y alcance", "Matriz de hallazgos", "Registro de cambios", "Reporte antes/después"], "evidence": []
+      "deliverables": [
+        "Inventario y alcance",
+        "Matriz de hallazgos",
+        "Registro de cambios",
+        "Reporte antes/después"
+      ],
+      "evidence": []
     }
   ],
   "certifications": [],
-  "documents": []
+  "documents": [],
+  "credentials": [
+    {
+      "id": "backtrack-gnu-linux",
+      "title": "Iniciando en GNU/Linux",
+      "issuer": "Backtrack Academy",
+      "issued": "13/02/2020",
+      "year": "2020",
+      "category": "sistemas",
+      "kind": "Certificado de aprobación",
+      "description": "Formación inicial en GNU/Linux, con número de verificación impreso en la constancia.",
+      "featured": true,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "backtrack-introduccion-seguridad",
+      "title": "Introducción a la Seguridad",
+      "issuer": "Backtrack Academy",
+      "issued": "13/02/2020",
+      "year": "2020",
+      "category": "seguridad",
+      "kind": "Certificado de aprobación",
+      "description": "Constancia de aprobación con número de verificación impreso en el documento.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "cisco-connecting-networks",
+      "title": "CCNA Routing and Switching: Connecting Networks",
+      "issuer": "Cisco Networking Academy / UNITEC",
+      "issued": "12/01/2020",
+      "year": "2020",
+      "category": "redes",
+      "kind": "Curso Networking Academy",
+      "description": "Curso de conectividad, tecnologías WAN, ACL, QoS y diagnóstico de redes empresariales.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "cisco-introduccion-ciberseguridad",
+      "title": "Introducción a la Seguridad Cibernética",
+      "issuer": "Cisco Networking Academy",
+      "issued": "19/11/2019",
+      "year": "2019",
+      "category": "seguridad",
+      "kind": "Curso Networking Academy",
+      "description": "Fundamentos de ciberseguridad, tipos de ataques y técnicas de protección.",
+      "featured": true,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "cisco-routing-switching",
+      "title": "CCNA Routing and Switching: Principios básicos de routing y switching",
+      "issuer": "Cisco Networking Academy / UNITEC",
+      "issued": "26/05/2019",
+      "year": "2019",
+      "category": "redes",
+      "kind": "Curso Networking Academy",
+      "description": "Formación en VLAN, routing, DHCP, NAT, ACL y diagnóstico de redes. El curso cuenta también con una carta de respaldo.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 2
+    },
+    {
+      "id": "eset-seguridad-pymes",
+      "title": "Seguridad para PYMES",
+      "issuer": "Academia ESET",
+      "issued": "28/05/2018",
+      "year": "2018",
+      "category": "seguridad",
+      "kind": "Certificado de formación",
+      "description": "Entrenamiento en seguridad para pequeñas y medianas empresas.",
+      "featured": true,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "equitrac-implementacion",
+      "title": "Equitrac Office and Express 5.7 Technical Certification for Implementation",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "17/05/2018",
+      "year": "2018",
+      "category": "mps",
+      "kind": "Certificación técnica de fabricante",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en Equitrac 5.7.",
+      "featured": true,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "equitrac-konica-minolta",
+      "title": "Equitrac Office and Express 5.7 Technical Certification for Konica Minolta",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "17/05/2018",
+      "year": "2018",
+      "category": "mps",
+      "kind": "Certificación técnica de fabricante",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en Equitrac 5.7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "equitrac-lexmark",
+      "title": "Equitrac Office and Express 5.7 Technical Certification for Lexmark",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "17/05/2018",
+      "year": "2018",
+      "category": "mps",
+      "kind": "Certificación técnica de fabricante",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en Equitrac 5.7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "equitrac-postventa",
+      "title": "Equitrac Office and Express 5.7 Technical Training for Post-Sale and Support",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "17/05/2018",
+      "year": "2018",
+      "category": "mps",
+      "kind": "Curso técnico",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en Equitrac 5.7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "autostore-formacion",
+      "title": "AutoStore 7 Technical Certification Training",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "11/10/2017",
+      "year": "2017",
+      "category": "mps",
+      "kind": "Curso técnico",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en AutoStore 7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "autostore-implementacion",
+      "title": "AutoStore 7 Technical Certification for Implementation",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "11/10/2017",
+      "year": "2017",
+      "category": "mps",
+      "kind": "Certificación técnica de fabricante",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en AutoStore 7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "autostore-actualizacion",
+      "title": "AutoStore 7 Technical Update Training",
+      "issuer": "Nuance University / Nuance Communications",
+      "issued": "11/10/2017",
+      "year": "2017",
+      "category": "mps",
+      "kind": "Curso técnico",
+      "description": "Constancia de finalización emitida por Nuance University para formación técnica en AutoStore 7.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "eset-seguridad-moviles",
+      "title": "Seguridad en dispositivos móviles",
+      "issuer": "Academia ESET",
+      "issued": "08/07/2016",
+      "year": "2016",
+      "category": "seguridad",
+      "kind": "Curso con constancia",
+      "description": "Formación en seguridad de dispositivos móviles.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "analitica-web",
+      "title": "Curso de Analítica Web",
+      "issuer": "Escuela de Organización Industrial (EOI)",
+      "issued": "Abril de 2016",
+      "year": "2016",
+      "category": "datos",
+      "kind": "Diploma de curso",
+      "description": "Curso de 40 horas; diploma acreditativo de superación de los requisitos académicos.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    },
+    {
+      "id": "java-version-8",
+      "title": "Java versión 8",
+      "issuer": "Global Knowledge / Centro Netec",
+      "issued": "02/02/2016",
+      "year": "2016",
+      "category": "sistemas",
+      "kind": "Seminario",
+      "description": "Constancia de participación en seminario virtual de Java versión 8.",
+      "featured": false,
+      "document_available": true,
+      "supporting_documents": 1
+    }
+  ],
+  "publications": [
+    {
+      "id": "conieem-2013-sensores",
+      "title": "Sistema electrónico de una red de sensores para la caracterización de una almohadilla",
+      "kind": "Artículo de congreso",
+      "year": "2013",
+      "venue": "XIII Congreso Nacional de Ingeniería Eléctrica y Electrónica del Mayab (CONIEEM)",
+      "authors": [
+        "David Hernández Trinidad",
+        "Ignacio Algredo-Badillo",
+        "Alfonso Flores Meza",
+        "Francisco Rubén Castillo Soria"
+      ],
+      "summary": "Trabajo en coautoría sobre una red de sensores aplicada a la caracterización de una almohadilla. Publicado en las memorias de CONIEEM 2013.",
+      "reference": "CONIEEM 2013 · ISSN 1665-0271 · Referencia en el índice: p. 232.",
+      "links": [
+        {
+          "label": "Consultar memorias del congreso (PDF)",
+          "url": "https://diee.net/wp-content/uploads/2018/06/Memorias_CONIEEM-2013.pdf"
+        }
+      ]
+    },
+    {
+      "id": "unistmo-2013-almohadilla",
+      "title": "Hardware y software de un sistema sensorial de una almohadilla",
+      "kind": "Reporte técnico",
+      "year": "2013",
+      "venue": "Cuerpo Académico de Ingeniería en Computación · Universidad del Istmo, Campus Tehuantepec",
+      "authors": [
+        "David Hernández Trinidad",
+        "Elsa Cortés Rito",
+        "Oswualdo Alquisiris Quecha",
+        "Ignacio Algredo-Badillo"
+      ],
+      "summary": "Diseño e implementación de un sistema para adquirir, registrar y visualizar datos de una red de 24 sensores. El reporte describe la integración hardware/software con EasyUSB IO, Visual Basic 2010 y Visual C# 2010.",
+      "reference": "Reporte Técnico No. IC06-300413 · Versión 1.0 · 15 de mayo de 2013.",
+      "links": [
+        {
+          "label": "Consultar referencia bibliográfica (PDF, p. 13)",
+          "url": "https://diplomado-ciencia-de-datos-32.webself.net/file/si1626668/download/CV%20corto_IgnacioAlgredo%2020072020-fi24885908.pdf#page=13"
+        }
+      ],
+      "document_available": true
+    }
+  ]
 }

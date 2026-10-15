@@ -51,3 +51,18 @@ La experiencia aparece en `site/index.html` y `site/profile.html`. Si cambias da
 El resumen público tiene su fuente en `scripts/generate_profile.py`. Para regenerarlo se necesita ReportLab y las fuentes DejaVu Sans. Esto solo afecta a la autoría del PDF: el sitio publicado y su compilación siguen sin dependencias externas.
 
 Después de cambiar el contenido, ejecuta el generador, abre el PDF para revisar la composición y guarda el PDF actualizado junto con el código. La publicación utiliza el archivo ya generado de `site/assets/Perfil_David_Hernandez.pdf`.
+
+## Cursos, seminarios y constancias
+El catálogo `/formacion/` se genera desde `credentials` en `content/portfolio.json`. Cada entrada incluye `id`, `title`, `issuer`, `issued`, `year`, `category`, `kind`, `description`, `document_available` y, opcionalmente, `featured` y `public_file`.
+
+- El catálogo ofrece las constancias a solicitud. Si decides habilitar un documento para descarga pública, guárdalo en `site/assets/formacion/` y registra su ruta en `public_file`.
+- Usa una categoría existente: `seguridad`, `redes`, `mps`, `sistemas` o `datos`.
+- Conserva el nombre y la fecha que figuran en el documento.
+- `kind` distingue curso, seminario, certificado de formación o certificación técnica de fabricante. No conviertas un curso de preparación en una certificación profesional.
+- Las cartas de respaldo del mismo curso se consideran documentación complementaria; no cuentan como una actividad adicional.
+- Los elementos con `featured: true` aparecen en la portada (hasta cuatro). El catálogo completo incluye todas las entradas y admite búsqueda y filtros.
+
+## Publicaciones académicas
+La sección se genera desde `publications` en `content/portfolio.json`. Incluye título, tipo de trabajo, año, sede, todos los autores, resumen propio, referencia bibliográfica y enlaces a las fuentes.
+
+Conserva la autoría y el tipo de publicación: artículo de congreso, reporte técnico u otro documento. Solo incorpora trabajos donde tu nombre figure como autor o coautor. El reporte completo se ofrece a solicitud; las referencias enlazan a fuentes ya publicadas.

@@ -111,6 +111,8 @@ for item in [
 ]:
     y_left = bullet(item, LEFT, y_left, LEFT_WIDTH)
 y_left = paragraph('Indicadores operativos de servicio y atención; el monitoreo corresponde a la base instalada.', LEFT, y_left, LEFT_WIDTH, 7, 10, MUTED, 0)
+y_left = heading('TRABAJO ACADÉMICO', LEFT, y_left-6, LEFT_WIDTH)
+y_left = paragraph('Coautoría: CONIEEM 2013 y Reporte Técnico IC06-300413, Universidad del Istmo. Redes de sensores e integración hardware/software. Referencias en el portafolio.', LEFT, y_left, LEFT_WIDTH, 7.7, 11.2, MUTED, 0)
 
 y_right = heading('FORMACIÓN / UNITEC', RIGHT_X, body_y, RIGHT_WIDTH)
 y_right = paragraph('Maestría en Seguridad de Tecnologías de la Información', RIGHT_X, y_right, RIGHT_WIDTH, 9.1, 13, INK, 5, True)
@@ -126,7 +128,7 @@ for item in [
 ]:
     y_right = paragraph(item, RIGHT_X, y_right, RIGHT_WIDTH, 7.7, 11.2, MUTED, 8)
 y_right = heading('FORMACIÓN COMPLEMENTARIA', RIGHT_X, y_right-3, RIGHT_WIDTH)
-y_right = paragraph('Redes, ciberseguridad, liderazgo y soluciones MPS. Cursos detallados en el portafolio; constancias pendientes de incorporar.', RIGHT_X, y_right, RIGHT_WIDTH, 7.7, 11.2, MUTED, 13)
+y_right = paragraph('Cursos de Cisco Networking Academy, ESET, Nuance y Backtrack Academy. Formación y referencias en el portafolio.', RIGHT_X, y_right, RIGHT_WIDTH, 7.7, 11.2, MUTED, 13)
 y_right = heading('IDIOMAS', RIGHT_X, y_right, RIGHT_WIDTH)
 y_right = paragraph('Español nativo.<br/>Inglés intermedio, con lectura técnica avanzada.', RIGHT_X, y_right, RIGHT_WIDTH, 7.7, 11.2, MUTED, 0)
 
