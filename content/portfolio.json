@@ -1,0 +1,51 @@
+{
+  "updated": "2026-10-15",
+  "labs": [
+    {
+      "id": "INF-01", "slug": "vmware-alta-disponibilidad", "title": "VMware y alta disponibilidad", "area": "Infraestructura", "filter": "infraestructura", "status": "en-desarrollo",
+      "summary": "Diseño de un entorno de virtualización para estudiar almacenamiento compartido y continuidad de máquinas virtuales.",
+      "tools": ["VMware", "HA", "Storage"],
+      "context": "Laboratorio personal iniciado como preparación técnica en virtualización. Se resolvió una incidencia de idioma durante la instalación. Las pruebas de alta disponibilidad todavía no están documentadas.",
+      "objective": "Construir una práctica reproducible que permita explicar la arquitectura, comprobar el acceso al almacenamiento y documentar el comportamiento ante una interrupción controlada.",
+      "architecture": [{"name":"Administración","detail":"Consola de gestión del entorno"},{"name":"Cómputo","detail":"Hosts de laboratorio según recursos disponibles"},{"name":"Almacenamiento","detail":"Datastore compartido de prueba"},{"name":"Carga de prueba","detail":"Máquina virtual sin datos reales"}],
+      "plan": [{"title":"Definir el alcance","detail":"Inventariar los recursos del equipo y acordar qué componentes pueden ejecutarse en el laboratorio.","validation":"Diagrama y tabla de recursos del entorno."},{"title":"Preparar la infraestructura","detail":"Configurar el entorno virtual y documentar la conectividad entre los componentes de práctica.","validation":"Capturas de configuración y pruebas de conectividad."},{"title":"Validar el almacenamiento","detail":"Comprobar la visibilidad del almacenamiento compartido desde los hosts del laboratorio.","validation":"Registro del datastore y de los accesos comprobados."},{"title":"Evaluar la disponibilidad","detail":"Diseñar y ejecutar una interrupción controlada únicamente cuando el entorno esté listo.","validation":"Secuencia de eventos, resultado observado y limitaciones."}],
+      "progress": "Instalación inicial retomada tras resolver la incidencia de idioma. Arquitectura definitiva, pruebas y evidencias pendientes.",
+      "deliverables": ["Diagrama de arquitectura", "Inventario de recursos", "Bitácora de configuración", "Registro de prueba y conclusión"], "evidence": []
+    },
+    {
+      "id": "ID-02", "slug": "active-directory-gpo", "title": "Active Directory y políticas de grupo", "area": "Identidad", "filter": "infraestructura", "status": "planificado",
+      "summary": "Administración de identidades, organización de usuarios y validación de políticas en un dominio de práctica.",
+      "tools": ["Windows Server", "AD DS", "GPO"],
+      "context": "Práctica propuesta para documentar conocimientos de administración de identidades. Todavía no se han publicado resultados de ejecución.",
+      "objective": "Demostrar con evidencia cómo se organizan identidades y equipos y cómo se comprueba el alcance de una política sobre un cliente de prueba.",
+      "architecture": [{"name":"Dominio de práctica","detail":"Controlador de dominio y DNS del laboratorio"},{"name":"Organización","detail":"Usuarios, grupos y unidades organizativas"},{"name":"Cliente","detail":"Equipo de prueba unido al dominio"},{"name":"Política","detail":"GPO acotada a la unidad de prueba"}],
+      "plan": [{"title":"Preparar el entorno","detail":"Definir direccionamiento, dominio de práctica y recursos de las máquinas virtuales.","validation":"Diagrama y prerrequisitos registrados."},{"title":"Organizar identidades","detail":"Crear usuarios, grupos y unidades organizativas con una nomenclatura documentada.","validation":"Matriz de usuarios, grupos y permisos de prueba."},{"title":"Aplicar una política","detail":"Elegir una política acotada, registrar su configuración y vincularla a la unidad prevista.","validation":"Configuración y alcance de la GPO documentados."},{"title":"Comprobar el resultado","detail":"Revisar desde el cliente la política aplicada y comparar el resultado con lo esperado.","validation":"Evidencia antes/después y conclusión de la prueba."}],
+      "progress": "Alcance y estructura documental preparados. Ejecución pendiente.",
+      "deliverables": ["Diagrama de dominio", "Matriz de identidades", "Ficha de la GPO", "Validación en el cliente"], "evidence": []
+    },
+    {
+      "id": "SOC-03", "slug": "wazuh-analisis-eventos", "title": "Wazuh: del evento al análisis", "area": "Blue Team", "filter": "seguridad", "status": "planificado",
+      "summary": "Recepción de eventos de un endpoint y documentación de una investigación en un entorno controlado.",
+      "tools": ["Wazuh", "SIEM", "Análisis"],
+      "context": "Práctica propuesta para desarrollar una bitácora de análisis de eventos. No representa una detección ejecutada ni un incidente de un cliente.",
+      "objective": "Documentar el recorrido de un evento de prueba: origen, recepción, contexto, análisis y conclusión sustentada en la evidencia disponible.",
+      "architecture": [{"name":"Endpoint","detail":"Equipo de laboratorio con agente"},{"name":"Recepción","detail":"Componentes centrales de Wazuh"},{"name":"Análisis","detail":"Revisión del evento y su contexto"},{"name":"Bitácora","detail":"Evidencia, conclusión y seguimiento"}],
+      "plan": [{"title":"Definir el caso de prueba","detail":"Elegir un evento benigno y un endpoint propio para una práctica con alcance claro.","validation":"Objetivo y resultado esperado registrados."},{"title":"Preparar la visibilidad","detail":"Configurar los componentes de laboratorio y comprobar la conexión del agente.","validation":"Estado del agente y recepción de eventos."},{"title":"Observar e investigar","detail":"Generar el evento de prueba y revisar sus campos, hora, origen y contexto.","validation":"Registro anonimizado del evento y notas de análisis."},{"title":"Comunicar la conclusión","detail":"Separar hechos observados de hipótesis y describir las acciones de seguimiento.","validation":"Reporte de análisis y limitaciones de la práctica."}],
+      "progress": "Caso de práctica y entregables definidos. Instalación y ejecución pendientes.",
+      "deliverables": ["Arquitectura del laboratorio", "Evento anonimizado", "Bitácora de investigación", "Conclusión técnica"], "evidence": []
+    },
+    {
+      "id": "SEC-04", "slug": "vulnerabilidades-hardening", "title": "Vulnerabilidades y hardening", "area": "Seguridad", "filter": "seguridad", "status": "planificado",
+      "summary": "Un ciclo de evaluación, priorización y validación de mejoras sobre sistemas propios de laboratorio.",
+      "tools": ["Windows / Linux", "Nmap", "Remediación"],
+      "context": "Nueva práctica propuesta para este portafolio. Su finalidad es mostrar cómo se registra un hallazgo y se verifica una mejora, sin usar datos ni sistemas de terceros.",
+      "objective": "Conectar un hallazgo técnico con su impacto, una acción de mejora y una validación posterior; documentar también los riesgos que permanezcan abiertos.",
+      "architecture": [{"name":"Activo de prueba","detail":"Sistema propio y aislado"},{"name":"Evaluación","detail":"Inventario y revisión de configuración"},{"name":"Mejora","detail":"Cambio documentado con reversión"},{"name":"Validación","detail":"Comparación antes/después"}],
+      "plan": [{"title":"Delimitar el alcance","detail":"Registrar los activos propios y las comprobaciones autorizadas dentro del laboratorio.","validation":"Inventario y alcance definidos."},{"title":"Registrar hallazgos","detail":"Revisar servicios y configuración y documentar cada observación con su evidencia.","validation":"Tabla de hallazgos, contexto y prioridad justificada."},{"title":"Proponer y aplicar mejoras","detail":"Elegir un cambio acotado, describir su impacto y preparar una reversión antes de aplicarlo.","validation":"Registro de cambio y comprobación del servicio."},{"title":"Revisar el resultado","detail":"Repetir la comprobación y comparar los resultados con la situación inicial.","validation":"Evidencia antes/después y riesgos residuales."}],
+      "progress": "Propuesta creada. Evaluación, cambios y evidencias pendientes.",
+      "deliverables": ["Inventario y alcance", "Matriz de hallazgos", "Registro de cambios", "Reporte antes/después"], "evidence": []
+    }
+  ],
+  "certifications": [],
+  "documents": []
+}
